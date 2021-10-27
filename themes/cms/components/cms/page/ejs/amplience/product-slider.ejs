@@ -1,0 +1,48 @@
+
+<script lang="ts">
+import Vue from 'vue'
+import { SfCarousel, SfProductCard } from '@storefront-ui/vue'
+import { productGetters, useProduct, useCart, useWishlist, wishlistGetters } from '@vsf-enterprise/commercetools'
+import { onMounted, computed } from '@vue/composition-api'
+
+export default Vue.extend({
+  name: 'ProductSlider',
+  components: {
+    SfCarousel,
+    SfProductCard,
+  },
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  setup({ items: ids }: { items: string[] }) {
+    const { addItem: addItemToCart, isInCart } = useCart();
+    const { addItem: addItemToWishlist, isInWishlist, removeItem, wishlist } = useWishlist();
+    const { search, products } = useProduct(ids.join(''));
+
+    const masterProducts = computed(() => productGetters.getFiltered(products.value, { master: true }));
+
+    const removeItemFromWishlist = (productItem) => {
+      const wishlistItems = wishlistGetters.getItems(wishlist.value);
+      const product = wishlistItems.find(wishlistItem => wishlistItem.variant.sku === productItem.sku);
+      removeItem({ product });
+    }
+    
+    onMounted(async () => {
+      await search({ ids });
+    })
+    
+    return {
+      list: masterProducts,
+      productGetters,
+      addItemToCart,
+      isInCart,
+      addItemToWishlist,
+      removeItemFromWishlist,
+      isInWishlist
+    }
+  },
+})
+</script>

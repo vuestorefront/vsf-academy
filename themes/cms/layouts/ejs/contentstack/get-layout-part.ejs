@@ -1,0 +1,6 @@
+ const getLayoutPart = (part) =>
+      computed(() =>
+        layout.value.length && layout.value[0].layout[part]
+          ? [layout.value[0].layout[part]]
+          : [],
+      )
