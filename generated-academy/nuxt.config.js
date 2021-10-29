@@ -42,6 +42,13 @@ export default {
       } else {
         return { x: 0, y: 0 };
       }
+    },
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'brand-page',
+        path: '/brand-page/:brand_name',
+        component: resolve(__dirname, 'pages/Brand.vue')
+      })
     }
   },
   buildModules: [
@@ -72,7 +79,7 @@ export default {
     'nuxt-i18n',
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
-    '@vue-storefront/middleware/nuxt',  
+    '@vue-storefront/middleware/nuxt',
   ],
   plugins: [],
   serverMiddleware: [],
