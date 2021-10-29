@@ -80,6 +80,7 @@ export default {
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
     '@vue-storefront/middleware/nuxt',
+    '~modules/extend-routes.ts'
   ],
   plugins: [],
   serverMiddleware: [],

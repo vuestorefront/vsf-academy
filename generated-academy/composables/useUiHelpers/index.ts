@@ -61,7 +61,7 @@ const useUiHelpers = () => {
   };
 
   const getCatLink = (category: Category): string => {
-    return `/c/${instance.$route.params.slug_1}/${category.slug}`;
+    return `/category/${instance.$route.params.slug_1}/${category.slug}`;
   };
 
   const changeSorting = (sort: string) => {

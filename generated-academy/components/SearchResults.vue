@@ -17,7 +17,7 @@
             </template>
             <SfList>
               <SfListItem v-for="(category, key) in categories.items" :key="key">
-                <SfMenuItem :label="category.label" :link="localePath(`/c/${category.slug}`)">
+                <SfMenuItem :label="category.label" :link="localePath(`/category/${category.slug}`)">
                   <template #mobile-nav-icon>
                     &#8203;
                   </template>
@@ -45,7 +45,7 @@
                   :image="productGetters.getCoverImage(product)"
                   :alt="productGetters.getName(product)"
                   :title="productGetters.getName(product)"
-                  :link="localePath(`/p/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
+                  :link="localePath(`/product/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
                   :is-in-wishlist="isInWishlist({ product })"
                   @click:wishlist="!isInWishlist({ product }) ? addItemToWishlist({ product }) : removeProductFromWishlist(product)"
                 />
@@ -62,7 +62,7 @@
                 :image="productGetters.getCoverImage(product)"
                 :alt="productGetters.getName(product)"
                 :title="productGetters.getName(product)"
-                :link="localePath(`/p/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
+                :link="localePath(`/product/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
                 :is-in-wishlist="isInWishlist({ product })"
                 @click:wishlist="!isInWishlist({ product }) ? addItemToWishlist({ product }) : removeProductFromWishlist(product)"
               />

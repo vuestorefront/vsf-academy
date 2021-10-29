@@ -98,7 +98,7 @@
               :show-add-to-cart-button="true"
               :isOnWishlist="isInWishlist({ product })"
               :isAddedToCart="isInCart({ product })"
-              :link="localePath(`/p/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
+              :link="localePath(`/product/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
               class="products__product-card"
               @click:wishlist="!isInWishlist({ product }) ? addItemToWishlist({ product }) : removeItemFromWishlist({ product })"
               @click:add-to-cart="addItemToCart({ product, quantity: 1 })"
@@ -129,7 +129,7 @@
               class="products__product-card-horizontal"
               @click:wishlist="!isInWishlist({ product }) ? addItemToWishlist({ product }) : removeItemFromWishlist({ product })"
               @click:add-to-cart="addItemToCart({ product, quantity: Number(productsQuantity[product._id]) })"
-              :link="localePath(`/p/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
+              :link="localePath(`/product/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
             >
               <template #configuration>
                 <SfProperty
