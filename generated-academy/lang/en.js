@@ -155,5 +155,5 @@ export default {
   'Change to grid view': 'Change to grid view',
   'Change to list view': 'Change to list view',
   'Winter sale': 'Winter sale',
-  'Check out our awesome winter collection items on sale and get the best deals.': 'Check out our awesome winter collection items on sale and get the best deals.',
+  'Check out our awesome winter collection items on sale and get the best deals.': 'Check out our awesome winter collection items on sale and get the best deals under {0}.',
 };

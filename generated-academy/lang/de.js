@@ -155,5 +155,5 @@ export default {
   'Change to grid view': 'Zur Rasteransicht wechseln',
   'Change to list view': 'Zur Listenansicht wechseln',
   'Winter sale': 'Winterverkauf',
-  'Check out our awesome winter collection items on sale and get the best deals.': 'Schauen Sie sich unsere fantastischen Winterkollektionsartikel im Sale an und sichern Sie sich die besten Angebote.',
+  'Check out our awesome winter collection items on sale and get the best deals.': 'Schauen Sie sich unsere fantastischen Winterkollektionsartikel im Sale an und sichern Sie sich die besten Angebote uter {0}.',
 };

@@ -111,11 +111,17 @@ export default {
         en: {
           currency: {
             style: 'currency', currency: 'USD', currencyDisplay: 'symbol'
+          },
+          currencyNoCents: {
+            style: 'currency', currency: 'USD', currencyDisplay: 'symbol', minimumFractionDigits: 0,
           }
         },
         de: {
           currency: {
             style: 'currency', currency: 'EUR', currencyDisplay: 'symbol'
+          },
+          currencyNoCents: {
+            style: 'currency', currency: 'EUR', currencyDisplay: 'symbol', minimumFractionDigits: 0,
           }
         }
       }
