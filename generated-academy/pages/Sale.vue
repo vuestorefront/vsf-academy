@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ title }}!</h1>
+    <h1>{{ $t('Winter sale') }}!</h1>
     <i18n
       tag="p"
       path="Check out our awesome winter collection items on sale and get the best deals."
@@ -11,13 +11,6 @@
 </template>
 <script>
 export default {
-  setup(_, context) {
-    const { _i18n } = context.root
-    const title = _i18n.t('Winter sale')
-
-    return {
-      title,
-    }
-  },
+  layout: 'default-no-footer',
 }
 </script>
