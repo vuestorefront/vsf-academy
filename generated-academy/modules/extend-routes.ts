@@ -1,6 +1,6 @@
 export default function () {
   this.extendRoutes(routes => {
-    const routesToRemove = ['Category___', 'Product___', 'Brand__']
+    const routesToRemove = ['Category___', 'Product___', 'Brand___']
     const pathsToReplace = [
       {
         oldPath: '/p/:id/:slug',
