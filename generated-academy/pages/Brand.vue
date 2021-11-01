@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="brand-page">
     <SfHeading
       :level="1"
       :title="`Brand - ${$route.params.brand_name}`"
@@ -16,3 +16,12 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+.brand-page {
+  .sf-heading {
+    &__title {
+      --heading-title-color: var(--c-primary);
+    }
+  }
+}
+</style>
