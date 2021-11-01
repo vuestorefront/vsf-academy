@@ -22,6 +22,9 @@ export default {
     &__title {
       --heading-title-color: var(--c-primary);
     }
+    &__description {
+      --heading-description-font-size: var(--font-size--lg);
+    }
   }
 }
 </style>
