@@ -208,7 +208,7 @@ import { ref, computed } from '@vue/composition-api';
 import {
   useProduct,
   useCart,
-  productGetters,
+  // productGetters,
   useReview,
   reviewGetters,
   useStore
@@ -216,6 +216,7 @@ import {
 import { onSSR } from '@vue-storefront/core';
 import LazyHydrate from 'vue-lazy-hydration';
 import cacheControl from './../helpers/cacheControl';
+import productGetters from '@/getters/productGetters';
 
 export default {
   name: 'Product',
