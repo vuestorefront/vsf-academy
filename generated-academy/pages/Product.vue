@@ -24,10 +24,17 @@
           />
         </div>
         <div class="product__price-and-rating">
-          <SfPrice
+          <!-- <SfPrice
             :regular="$n(productGetters.getPrice(product).regular, 'currency')"
             :special="productGetters.getPrice(product).special && $n(productGetters.getPrice(product).special, 'currency')"
-          />
+          /> -->
+          <div class="price-wrapper">
+            <SfPrice :regular="`${$n(productGetters.getNetPrice(product), 'currency')} net`" />
+            <SfPrice
+              :regular="`${$n(productGetters.getPrice(product).regular, 'currency')} gross`"
+              :special="productGetters.getPrice(product).special && $n(productGetters.getPrice(product).special, 'currency')"
+            />
+          </div>
           <div>
             <div class="product__rating">
               <SfRating
