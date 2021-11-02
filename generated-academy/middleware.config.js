@@ -1,3 +1,5 @@
+const productTaxCategory = require('./customQueries/productTaxCategory')
+
 module.exports = {
   integrations: {
     ct: {
@@ -14,6 +16,9 @@ module.exports = {
           variables.limit = metadata.limit;
           variables.sort = `lastModifiedAt ${metadata.order}`;
           return { query, variables };
+        },
+        productTaxCategory: ({ query, variables, metadata }) => {
+          return { query: productTaxCategory, variables }
         }
       }
     },

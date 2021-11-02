@@ -274,7 +274,7 @@ export default {
     })));
 
     onSSR(async () => {
-      await search({ id });
+      await search({ id, customQuery: { products: 'productTaxCategory' } });
       await searchRelatedProducts({ catId: [categories.value[0]], limit: 8 });
       await searchReviews({ productId: id });
     });
