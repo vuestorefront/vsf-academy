@@ -1,4 +1,4 @@
-const productTaxCategory = require('./customQueries/productTaxCategory')
+const customQueries = require('./customQueries');
 
 module.exports = {
   integrations: {
@@ -10,17 +10,7 @@ module.exports = {
         currency: 'USD',
         country: 'US'
       },
-      customQueries: {
-        "LastModifiedProductsQuery": ({ query, variables, metadata }) => {
-          variables.where = `lastModifiedAt <= "${metadata.date}"`;
-          variables.limit = metadata.limit;
-          variables.sort = `lastModifiedAt ${metadata.order}`;
-          return { query, variables };
-        },
-        productTaxCategory: ({ query, variables, metadata }) => {
-          return { query: productTaxCategory, variables }
-        }
-      }
+      customQueries
     },
     ctf: {
       location: '@vsf-enterprise/ct-faceting/server',
