@@ -34,6 +34,9 @@ export default {
     script: []
   },
   loading: { color: '#fff' },
+  css: [
+    '~assets/css/main.css'
+  ],
   router: {
     middleware: ['checkout'],
     scrollBehavior (_to, _from, savedPosition) {
