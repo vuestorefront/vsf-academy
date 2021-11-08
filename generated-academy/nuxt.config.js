@@ -67,7 +67,13 @@ export default {
       }
     }],
     ['@vsf-enterprise/ct-faceting/nuxt', {
-      apiConfigModule: '@vsf-enterprise/commercetools/nuxt'
+      apiConfigModule: '@vsf-enterprise/commercetools/nuxt',
+      availableFacets: [
+        { facet: 'categories.id', type: 'string', option: 'subtree("*")', name: 'category', filteringStrategy: 'query' },
+        { facet: 'variants.attributes.size', type: 'string', option: '', name: 'size' },
+        { facet: 'variants.attributes.color.key', type: 'string', option: '', name: 'color' },
+        { facet: 'variants.price.centAmount', type: '', option: '', name: 'price' }
+      ],
     }],
     ['@vsf-enterprise/commercetools/nuxt', {
       i18n: {

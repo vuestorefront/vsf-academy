@@ -59,7 +59,10 @@ export default {
     onSSR(async () => {
       await search({
         ...th.getFacetsFromURL(),
-        categorySlug: 'sale',
+        // categorySlug: 'sale',
+        filters: {
+          price: ["range (* to 10000)"]
+        }
       })
 
       if (error?.value?.search) context.root.$nuxt.error({ statusCode: 404 })
