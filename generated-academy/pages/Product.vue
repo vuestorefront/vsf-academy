@@ -29,7 +29,7 @@
             :special="productGetters.getPrice(product).special && $n(productGetters.getPrice(product).special, 'currency')"
           /> -->
           <div class="price-wrapper">
-            <SfPrice :regular="`${$n(productGetters.getNetPrice(product), 'currency')} net`" />
+            <SfPrice :regular="`${$n(getNetPrice(product), 'currency')} net`" />
             <SfPrice
               :regular="`${$n(productGetters.getPrice(product).regular, 'currency')} gross`"
               :special="productGetters.getPrice(product).special && $n(productGetters.getPrice(product).special, 'currency')"
@@ -215,7 +215,7 @@ import { ref, computed } from '@vue/composition-api';
 import {
   useProduct,
   useCart,
-  // productGetters,
+  productGetters,
   useReview,
   reviewGetters,
   useStore
@@ -223,8 +223,7 @@ import {
 import { onSSR } from '@vue-storefront/core';
 import LazyHydrate from 'vue-lazy-hydration';
 import cacheControl from './../helpers/cacheControl';
-import productGetters from '@/getters/productGetters';
-
+import getNetPrice from '@/getters/getNetPrice'
 export default {
   name: 'Product',
   transition: 'fade',
@@ -317,7 +316,8 @@ export default {
       channels,
       channelId,
       selectedChannel,
-      selectedStore
+      selectedStore,
+      getNetPrice
     };
   },
   components: {
