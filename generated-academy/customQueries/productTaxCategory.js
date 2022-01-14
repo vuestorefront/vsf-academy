@@ -1,40 +1,23 @@
-const gql = require('graphql-tag');
+const { ChannelFragment, ProductPriceFragment } = require('@vue-storefront/commercetools-api');
 
 // add taxCategory field on products query
-module.exports = gql`
-  fragment DefaultProductPrice on ProductPrice {
-    discounted {
-      value {
-        type
-        currencyCode
-        centAmount
-        fractionDigits
-      }
-      discount {
-        validFrom
-        validUntil
-        isActive
-        name(acceptLanguage: $acceptLanguage)
-      }
-    }
-    value {
-      type
-      currencyCode
-      centAmount
-      fractionDigits
-    }
-  }
+module.exports = `
+  ${ProductPriceFragment}
+  ${ChannelFragment}
+
   fragment Images on ProductVariant {
     images {
       url
       label
     }
   }
+
   fragment Price on ProductVariant {
     price(currency: $currency, country: $country, channelId: $channelId) {
       ...DefaultProductPrice
     }
   }
+
   fragment Attributes on ProductVariant {
     attributesRaw {
       name
@@ -47,6 +30,7 @@ module.exports = gql`
       }
     }
   }
+
   fragment Availability on ProductVariant {
     availability {
       noChannel {
@@ -54,7 +38,12 @@ module.exports = gql`
         restockableInDays
         availableQuantity
       }
-      channels(includeChannelIds: $includeChannelIds, excludeChannelIds: $excludeChannelIds, limit: $channelLimit, offset: $channelOffset) {
+      channels(
+        includeChannelIds: $includeChannelIds
+        excludeChannelIds: $excludeChannelIds
+        limit: $channelLimit
+        offset: $channelOffset
+      ) {
         limit
         offset
         total
@@ -68,15 +57,13 @@ module.exports = gql`
             availableQuantity
           }
           channel {
-            id
-            key
-            description(locale: $locale)
-            name(locale: $locale)
+            ...ChannelFragment
           }
         }
       }
     }
   }
+
   fragment DefaultVariant on ProductVariant {
     id
     sku
@@ -85,6 +72,7 @@ module.exports = gql`
     ...Attributes
     ...Availability
   }
+
   query products(
     $where: String
     $sort: [String!]
@@ -101,7 +89,13 @@ module.exports = gql`
     $channelLimit: Int
     $channelOffset: Int
   ) {
-    products(where: $where, sort: $sort, limit: $limit, offset: $offset, skus: $skus) {
+    products(
+      where: $where
+      sort: $sort
+      limit: $limit
+      offset: $offset
+      skus: $skus
+    ) {
       offset
       count
       total
@@ -120,8 +114,8 @@ module.exports = gql`
           }
         }
         reviewRatingStatistics {
-          averageRating
-          ratingsDistribution
+          averageRating,
+          ratingsDistribution,
           count
         }
         masterData {
