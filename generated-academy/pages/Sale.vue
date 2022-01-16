@@ -53,16 +53,12 @@ export default {
     const { addItem: addItemToWishlist, isInWishlist, removeItem: removeItemFromWishlist } = useWishlist()
     const { result, search, loading, error } = useFacet()
 
-    const allProducts = computed(() => facetGetters.getProducts(result.value))
-    const products = computed(() => allProducts.value && allProducts.value.filter(product => product?.price?.value.centAmount <= 10000))
+    const products = computed(() => facetGetters.getProducts(result.value))
 
     onSSR(async () => {
       await search({
         ...th.getFacetsFromURL(),
-        // categorySlug: 'sale',
-        filters: {
-          price: ["range (* to 10000)"]
-        }
+        categorySlug: 'sale'
       })
 
       if (error?.value?.search) context.root.$nuxt.error({ statusCode: 404 })
