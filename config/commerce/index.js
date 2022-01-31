@@ -1,7 +1,7 @@
 const commercetools = {
   name: 'commercetools',
   source: '@vsf-enterprise/commercetools',
-  dependencies: { '@vsf-enterprise/commercetools': '^1.3.0', '@vue-storefront/commercetools': '~1.3.3' },
+  dependencies: { '@vsf-enterprise/commercetools': '~1.3.0', '@vue-storefront/commercetools': '~1.3.3' },
   api: {
     uri: process.env.COMMERCETOOLS_URI,
     authHost: process.env.COMMERCETOOLS_AUTH_HOST,
