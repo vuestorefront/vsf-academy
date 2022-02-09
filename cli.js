@@ -114,12 +114,13 @@ return (async () => {
       execSync(command, { stdio: 'inherit' })
       consola.success(`Project generated successfully!`)
 
-      const dependencies = getDependenciesList({
+      const [ dependencies, resolutions ] = getDependenciesList({
         cms: answer.cms,
         commerce: answer.commerce,
         payment: answer.payment,
         search: answer.search,
       })
+
       console.table(
         Object.entries(dependencies).map(([package, version]) => ({
           package,
@@ -138,6 +139,7 @@ return (async () => {
               ...packageJson.dependencies,
               ...dependencies,
             },
+            ...(Object.keys(resolutions).length && {resolutions: { ...resolutions }})
           },
           null,
           2,
